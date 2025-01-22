@@ -33,7 +33,7 @@ const mainTimeline = gsap.timeline({
         start: 'top top',
         end: '+=400%',
         pin: true,
-        scrub: 2
+        scrub: 1
     }
 });
 
