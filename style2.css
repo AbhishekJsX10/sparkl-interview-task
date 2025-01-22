@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #000;
+}
+
+.section1, .section2, .section3{
+    width: 100%;
+    position: relative;
+}
+
+.section1{
+    height: 100vh;
+    background-color: #000000;
+}
+
+.section2{
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.section3{
+    height: 100vh;
+    background-color: #020202;
+    position: relative;
+    z-index: 1;
+    transform: translateY(100px);
+    opacity: 0.8;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    color: #020202;
+    margin-left: 10rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 3;
+    opacity: 1;
+    transform: none;
+    pointer-events: none;
+    letter-spacing: -0.02em;
+}
+
+.cards-container {
+    display: flex;
+    align-items: center;
+    padding-left: 10rem;
+    padding-right: 4rem;
+    gap: 0rem;
+    overflow-x: hidden;
+}
+
+.card{
+    width: 700px;
+    height: 350px;
+    background-color: white;
+    border-radius: 15px;
+    /* box-shadow: 0 10px 20px rgba(0,0,0,0.1); */
+    transform-style: preserve-3d;
+    will-change: transform;
+    flex-shrink: 0;
+    transition: width 0.5s ease;
+    margin-right: 1rem;
+    position: relative;
+    overflow: visible;
+}
+
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+    overflow: hidden;
+    clip-path: inset(0);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    position: relative;
+    min-width: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-heading {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+    position: relative;
+    transform-origin: 0 0;
+    display: inline-block;
+    left: 0.75rem;
+}
+
+.card-bottom {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+    min-width: 0;
+    width: 100%;
+}
+
+.card-image {
+    width: 200px;
+    height: 150px;
+    flex-shrink: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card-text {
+    flex-grow: 1;
+    transition: opacity 0.3s ease;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 0.5rem;
+}
+
+.card-text p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.card-number {
+    width: 25px;
+    height: 25px;
+    background-color: #000;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.75rem;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.card-number .number,
+.card-number .checkmark {
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+.card-number .checkmark {
+    opacity: 0;
+    font-size: 0.9rem;
+}
+
+.card-number.completed {
+    background-color: #4CAF50;
+}
+
+.card-number.completed .number {
+    opacity: 0;
+}
+
+.card-number.completed .checkmark {
+    opacity: 1;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.card:last-child {
+    margin-right: 0;
+}
+
+.card4 {
+    width: 700px !important; /* Ensure width is not changed by animations */
+}
+
+.card4 .card-number.static {
+    background-color: #4CAF50 !important;
+}
+
+.card4 .card-number.static .checkmark {
+    opacity: 1 !important;
+    font-size: 0.9rem;
+}
+
+.card4 .card-content * {
+    opacity: 1 !important; /* Keep all content visible */
+    transform: none !important; /* Prevent any transforms */
+}
+
+.card4 .card-number {
+    background-color: #000 !important; /* Keep background black */
+}
+
+.card4 .card-number .number {
+    opacity: 1 !important; /* Keep number visible */
+}
+
+.card4 .card-number .checkmark {
+    opacity: 0 !important; /* Hide checkmark */
+}
+
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section p{
+    font-size: 3rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .section-title{
+        margin-left: 3rem;
+    }
+    .cards-container{
+        padding-left: 3rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .section-title{
+        margin-left: 1rem;
+    }
+    .cards-container{
+        padding-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 1053px) {
+    .card{
+        width: 200px;
+        height: 300px;
+        background-color: white;
+        margin-right: 0.5rem;
+    }
+    
+    .card-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: auto;
+        height: 100%;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 2rem;
+        overflow: hidden;
+        clip-path: inset(0);
+    }
+    
+    .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+        position: relative;
+        min-width: 0;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-heading {
+        font-size: 1rem;
+        color: #333;
+        font-weight: 600;
+        white-space: nowrap;
+        position: relative;
+        transform-origin: 0 0;
+        display: inline-block;
+        left: 0.75rem;
+    }
+    
+    .card-bottom {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 1rem;
+        align-items: flex-start;
+        min-width: 0;
+        width: 100%;
+    }
+    
+    .card-image {
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+}
+
+
